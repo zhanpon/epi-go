@@ -24,3 +24,17 @@ func TestSearchListMiss(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestInsertAfter(t *testing.T) {
+	var (
+		three = ListNode{3, nil}
+		one   = ListNode{1, &three}
+	)
+
+	two := ListNode{2, nil}
+	InsertAfter(&one, &two)
+
+	if one.Next != &two {
+		t.Fail()
+	}
+}
