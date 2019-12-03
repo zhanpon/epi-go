@@ -4,23 +4,19 @@ import (
 	"testing"
 )
 
-var seven = ListNode{7, nil}
-var five = ListNode{5, &seven}
-var three = ListNode{3, &five}
-var two = ListNode{2, &three}
-
 func TestSearchListHit(t *testing.T) {
-	result := SearchList(&two, 5)
+	var (
+		seven = ListNode{7, nil}
+		five  = ListNode{5, &seven}
+		three = ListNode{3, &five}
+		two   = ListNode{2, &three}
+	)
 
-	if result != &five {
+	if SearchList(&two, 5) != &five {
 		t.Fail()
 	}
-}
 
-func TestSearchListMiss(t *testing.T) {
-	result := SearchList(&two, 11)
-
-	if result != nil {
+	if SearchList(&two, 11) != nil {
 		t.Fail()
 	}
 }
