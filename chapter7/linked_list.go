@@ -16,3 +16,7 @@ func SearchList(node *ListNode, key int) *ListNode {
 func InsertAfter(node *ListNode, newNode *ListNode) {
 	node.Next, newNode.Next = newNode, node.Next
 }
+
+func DeleteList(node *ListNode) {
+	node.Next = node.Next.Next
+}

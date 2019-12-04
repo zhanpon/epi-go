@@ -34,3 +34,17 @@ func TestInsertAfter(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestDeleteList(t *testing.T) {
+	var (
+		three = ListNode{3, nil}
+		two = ListNode{2, &three}
+		one   = ListNode{1, &two}
+	)
+
+	DeleteList(&one)
+
+	if one.Next != &three {
+		t.Fail()
+	}
+}
