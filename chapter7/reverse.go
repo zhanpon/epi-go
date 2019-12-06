@@ -1,13 +1,10 @@
 package chapter7
 
 func Reverse(node *ListNode) *ListNode {
-	var last *ListNode
+	var previous *ListNode
 	for node != nil {
-		next := node.Next
-		node.Next = last
-		last = node
-		node = next
+		previous, node, node.Next = node, node.Next, previous
 	}
 
-	return last
+	return previous
 }
