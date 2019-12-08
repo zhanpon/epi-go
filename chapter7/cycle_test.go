@@ -33,3 +33,33 @@ func TestHasCycle2(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestHasCycleQuadratic(t *testing.T) {
+	var (
+		three = ListNode{3, nil}
+		two   = ListNode{2, &three}
+		one   = ListNode{1, &two}
+	)
+
+	result := HasCycleQuadratic(&one)
+
+	if result != nil {
+		t.Fail()
+	}
+}
+
+func TestHasCycleQuadratic2(t *testing.T) {
+	var (
+		four  = ListNode{4, nil}
+		three = ListNode{3, &four}
+		two   = ListNode{2, &three}
+		one   = ListNode{1, &two}
+	)
+	four.Next = &two
+
+	result := HasCycleQuadratic(&one)
+
+	if result != &two {
+		t.Fail()
+	}
+}
